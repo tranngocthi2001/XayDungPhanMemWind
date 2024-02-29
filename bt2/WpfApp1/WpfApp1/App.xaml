@@ -1,0 +1,12 @@
+﻿<Application x:Class="WpfApp1.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WpfApp1"
+             xmlns:localModel="clr-namespace:waMonhoc.Models"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <localModel:Monhoc x:Key="rsMonhoc"></localModel:Monhoc> 
+        <localModel:
+        <localModel:CHocvien x:Key="rsHocvien"></localModel:CHocvien>
+    </Application.Resources>
+</Application>

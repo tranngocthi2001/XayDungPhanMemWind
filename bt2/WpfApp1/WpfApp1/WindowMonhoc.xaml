@@ -1,0 +1,84 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <StackPanel>
+        <Label Content="Quản lý môn học" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold"></Label>
+        <Grid x:Name="gridMonHoc" DataContext="{StaticResource rsMonhoc}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="Mã số môn học"></TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="Tên môn học"></TextBlock>
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="Số tiết"></TextBlock>
+            <TextBox Grid.Row="0" Grid.Column="2" Height="25" Text="{Binding Msmh}"></TextBox>
+            <TextBox Grid.Row="1" Grid.Column="2" Height="25" Text="{Binding Tenmh}"></TextBox>
+            <TextBox Grid.Row="2" Grid.Column="2" Height="25" Text="{Binding Sotiet}"></TextBox>
+            <Button Content="Thêm" Grid.Row="0" Grid.Column="4" x:Name="btnName" Click="btnName_Click"></Button>
+        </Grid>
+        <Label Content="Danh sách môn học" FontSize="16" FontWeight="Bold"></Label>
+        <DataGrid Margin="5,5" x:Name="dg" AutoGenerateColumns="False" SelectedValuePath="Msmh" LoadingRowDetails="dg_LoadingRowDetails">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã môn học" Binding="{Binding Msmh}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Tên môn học" Binding="{Binding Tenmh}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Số tiết" Binding="{Binding Sotiet}"></DataGridTextColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Xóa" x:Name="btnXoa" Click="btnXoa_Click"></Button>
+
+
+
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <Expander>
+                        <StackPanel>
+                            <Label Content="Form sửa môn học" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"></Label>
+                            <Grid x:Name="gridSuaMonHoc" DataContext="{StaticResource rsMonhoc}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="1" Text="Mã số môn học"></TextBlock>
+                                <TextBlock Grid.Row="1" Grid.Column="1" Text="Tên môn học"></TextBlock>
+                                <TextBlock Grid.Row="2" Grid.Column="1" Text="Số tiết"></TextBlock>
+                                <TextBox Grid.Row="0" Grid.Column="2" Height="25" Text="{Binding Msmh}"></TextBox>
+                                <TextBox Grid.Row="1" Grid.Column="2" Height="25" Text="{Binding Tenmh}"></TextBox>
+                                <TextBox Grid.Row="2" Grid.Column="2" Height="25" Text="{Binding Sotiet}"></TextBox>
+                                <Button Content="Sửa" Grid.Row="0" Grid.Column="4" x:Name="btnSua" Click="btnSua_Click"></Button>
+                            </Grid>
+                        </StackPanel>
+                    </Expander>
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+        </DataGrid>
+    </StackPanel>
+
+</Window>
