@@ -13,6 +13,8 @@
                         Executed="lenhThem_Executed" CanExecute="lenhThem_CanExecute" />
         <CommandBinding Command="localVM:CMyCommands.lenhXoa" x:Name="lenhXoa" 
                         Executed="lenhXoa_Executed" CanExecute="lenhXoa_CanExecute"/>
+        <CommandBinding Command="localVM:CMyCommands.lenhSua" x:Name="lenhSua"
+                        Executed="lenhSua_Executed" CanExecute="lenhSua_CanExecute"/>
     </Window.CommandBindings>
     <StackPanel>
         <Label Content="Quan Ly Hang Hoa" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
@@ -44,7 +46,7 @@
 
             <Button Content="Them" Grid.Row="0" Grid.Column="4" Command="localVM:CMyCommands.lenhThem"/>
             <Button Content="Xoa" Grid.Row="1" Grid.Column="4" Command="localVM:CMyCommands.lenhXoa"/>
-            <Button Content="Sua" Grid.Row="2" Grid.Column="4" Command=""/>
+            <Button Content="Sua" Grid.Row="2" Grid.Column="4" Command="localVM:CMyCommands.lenhSua"/>
         </Grid>
         <DataGrid x:Name="dgHanghoa" SelectedValuePath="Mahang" AutoGenerateColumns="False" 
                   SelectedCellsChanged="dgHanghoa_SelectedCellsChanged">

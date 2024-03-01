@@ -5,8 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1.UI"
         mc:Ignorable="d"
-        Title="WindowHoadon" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="WindowHoadon" Height="450" Width="800" Loaded="Window_Loaded">
+    <StackPanel>
+        <Expander Header="Danh Sach Hoa Don ">
+            <StackPanel>
+                <DataGrid Margin="5.5" x:Name="dgHoadon" SelectedValuePath="Sohd"
+                          AutoGenerateColumns="False" LoadingRowDetails="dgHoadon_LoadingRowDetails">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Ma hoa don" Binding="{Binding Sohd}"/>
+                        <DataGridTextColumn Header="Ngay lap hoa don" Binding="{Binding Ngaylaphd}"/>
+                        <DataGridTextColumn Header="Ten khach hang" Binding="{Binding Tenkh}"/>
+                        <DataGridTextColumn Header="Thanh tien" Binding="{Binding Thanhtien}"/>
+                    </DataGrid.Columns>
+                    <DataGrid.RowDetailsTemplate>
+                        <DataTemplate>
+                            <Expander Header="Chi tiet hoa don">
+                                <StackPanel>
+                                    <DataGrid x:Name="dgCTHD" AutoGenerateColumns="False">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Ma hang" Binding="{Binding Mahang}"/>
+                                            <DataGridTextColumn Header="Ten hang" Binding="{Binding Tenhang}"/>
+                                            <DataGridTextColumn Header="Don vi tinh" Binding="{Binding Dvt}"/>
+                                            <DataGridTextColumn Header="Don gia" Binding="{Binding Dongia}"/>
+                                            <DataGridTextColumn Header="So luong" Binding="{Binding Soluong}"/>
+                                            <DataGridTextColumn Header="Thanh tien" Binding="{Binding Thanhtien}"/>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </StackPanel>
+                            </Expander>
+                        </DataTemplate>
+                    </DataGrid.RowDetailsTemplate>
+                </DataGrid>
+            </StackPanel>
+        </Expander>
+    </StackPanel>
 </Window>

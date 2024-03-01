@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Z8HJHo8DgSMqSbVQDiligFpD9XxI0fxG6GDF5Rf8DrScinZNS5zI3eKWSlUIToiOB2PXc6OIgykShvQBwVg3Kw==",
+  "dgSpecHash": "Fl9yDb6xxHak628+iLkkbOTFreO9oble5T17tM4LbKAqBVplGBLngttQzwdkGAy8D3cw/ocDgXlj+97I83Khjg==",
   "success": true,
-  "projectFilePath": "D:\\HocTap2023_2024\\XayDungPhanMemWeb\\QLHOADON\\WpfApp1\\WpfApp1\\WpfApp1.csproj",
+  "projectFilePath": "D:\\HocTap2023_2024\\XayDungPhanMemWind\\QLHOADON\\WpfApp1\\WpfApp1\\WpfApp1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\thi03\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\thi03\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

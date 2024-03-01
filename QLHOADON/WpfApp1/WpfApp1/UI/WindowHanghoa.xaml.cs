@@ -109,5 +109,38 @@ namespace WpfApp1.UI
             }
             e.CanExecute = true;
         }
+
+        private void lenhSua_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            CHanghoa x = gridHanghoa.DataContext as CHanghoa;
+            Hanghoa a = CHanghoa.chuyendoi(x);
+            hoadonContext db = new hoadonContext();
+            db.Hanghoas.Update(a);
+            db.SaveChanges();
+
+            hienthi();
+        }
+
+        private void lenhSua_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            hoadonContext db = new hoadonContext();
+            CHanghoa x = gridHanghoa.DataContext as CHanghoa;
+            if (x == null || string.IsNullOrEmpty(x.Mahang))
+            {
+                e.CanExecute = false; return;
+            }
+            Double dg;
+            if (double.TryParse(x.Dongia, out dg) == false)
+            {
+                e.CanExecute = false; return;
+            }
+            if (db.Hanghoas.Find(x.Mahang) == null)//kt hang hoa co trong cdsl
+            {
+                e.CanExecute = false;
+                return;
+            }
+
+            e.CanExecute = true;
+        }
     }
 }
