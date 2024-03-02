@@ -13,6 +13,7 @@ namespace WpfApp1.ModelVM
         public static RoutedCommand lenhThem = new RoutedCommand();
         public static RoutedCommand lenhXoa = new RoutedCommand();
         public static RoutedCommand lenhSua = new RoutedCommand();
+        public static RoutedCommand lenhChon = new RoutedCommand();
     }
 
 }

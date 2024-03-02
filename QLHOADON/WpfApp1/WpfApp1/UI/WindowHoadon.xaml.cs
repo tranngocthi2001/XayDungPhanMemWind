@@ -21,6 +21,7 @@ namespace WpfApp1.UI
     /// </summary>
     public partial class WindowHoadon : Window
     {
+        private Hoadon hd;
         public WindowHoadon()
         {
             InitializeComponent();
@@ -34,6 +35,9 @@ namespace WpfApp1.UI
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            hd=new Hoadon();
+            hoadonContext db = new hoadonContext();
+            cmbMahang.ItemsSource = db.Hanghoas.ToList();
             hienthi();
         }
 
@@ -55,11 +59,37 @@ namespace WpfApp1.UI
 
         //private void dgCTHD_Loaded(object sender, RoutedEventArgs e)
         //{
-
+         
         //}
         public void hienthiCTHD(DataGrid dg,Hoadon x)
         {
             dg.ItemsSource= x.Chitiethoadons.Select(t=>ChitietHoadonView.chuyendoi(t)).ToList();
+        }
+
+        private void lenhChon_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            ChitiethoadonVM x = gridCTHD.DataContext as ChitiethoadonVM;
+            Chitiethoadon ct = hd.Chitiethoadons.FirstOrDefault(t => t.Mahang == x.Mahang);
+                if(ct==null)
+            {
+                hoadonContext db = new hoadonContext();
+                ct = new Chitiethoadon();
+                ct.Mahang = x.Mahang;
+                ct.MahangNavigation = db.Hanghoas.Find(ct.Mahang);
+                ct.Dongia = ct.MahangNavigation.Dongia;
+                ct.Soluong = int.Parse(x.Soluong);
+                hd.Chitiethoadons.Add(ct);
+            }
+            else
+            {
+                ct.Soluong += int.Parse(x.Soluong);
+            }
+            hienthiCTHD(dgCTHD, hd);
+        }
+
+        private void lenhChon_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+
         }
     }
 }

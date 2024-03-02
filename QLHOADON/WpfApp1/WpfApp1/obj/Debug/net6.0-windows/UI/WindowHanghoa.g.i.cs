@@ -94,7 +94,7 @@ namespace WpfApp1.UI {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WpfApp1;component/ui/windowhanghoa.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WpfApp1;V1.0.0.0;component/ui/windowhanghoa.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UI\WindowHanghoa.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
